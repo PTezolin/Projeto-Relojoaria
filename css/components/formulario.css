@@ -1,0 +1,1431 @@
+/* formulario.css */
+/* Botões para alternar entre Relógio e Joia */
+.seletor-tipo-flutuante {
+    position: absolute;
+    top: 5px;
+    left: 45px;
+    display: flex;
+    gap: 4px;
+    z-index: 1000;
+    background: transparent;
+}
+
+.botao-seletor {
+    padding: 8px 24px;
+    background: white;
+    border: 2px solid var(--cor-borda);
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 1.95px 1.95px 2.6px;
+    position: relative;
+}
+
+.botao-seletor.ativo {
+    background: var(--cor-destaque);
+    color: white;
+    border: 2.5px solid white;
+    box-shadow: rgba(0, 0, 0, 0.06) 1.95px 1.95px 2.6px;
+}
+
+.botao-seletor:not(.ativo):hover {
+    color: var(--cor-texto);
+    background: #f3f3f3;
+}
+
+/* Ícone dentro do botão */
+.botao-seletor i {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+/* Ícone levemente ampliado quando ativo */
+.botao-seletor.ativo i {
+    transform: scale(1.1);
+}
+
+/* ! ========================================================================================= */
+/* Seção principal do formulário (69%) */
+.moldura-cadastro {
+    flex: 1 1 69%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ! ========================================================================================= */
+/* Coluna lateral auxiliar (30%) */
+.auxiliar {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+}
+
+/* ! ========================================================================================= */
+
+/* Área da caixa de pesquisa */
+.moldura-pesquisar {
+    flex: 0.8;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* ! ========================================================================================= */
+/* Título da área de pesquisa */
+.titulo-pesquisa {
+    color: var(--cor-texto);
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Container da entrada e botão de pesquisa */
+.container-pesquisa {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Campo de entrada de texto */
+.entrada-pesquisa {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 0.875rem; /* 14px */
+    transition: all 0.2s ease;
+    background-color: var(--cor-fundo-input);
+    color: var(--cor-texto);
+}
+
+/* Estilo ao focar no campo */
+.entrada-pesquisa:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+    background-color: white;
+}
+
+/* Estilo do placeholder */
+.entrada-pesquisa::placeholder {
+    color: var(--cor-texto-claro);
+    opacity: 1;
+}
+
+/* Botão de pesquisa */
+.botao-pesquisar {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Efeito ao passar o mouse no botão */
+.botao-pesquisar:hover {
+    background-color: #03001a;
+    transform: translateY(-1px);
+}
+
+/* Efeito ao clicar no botão */
+.botao-pesquisar:active {
+    transform: translateY(0);
+}
+
+/* Ícone dentro do botão */
+.botao-pesquisar i {
+    font-size: 1.25rem; /* 20px */
+    transition: transform 0.2s ease;
+}
+
+/* Animação do ícone no hover */
+.botao-pesquisar:hover i {
+    transform: scale(1.05);
+}
+
+/* Acessibilidade no foco */
+.botao-pesquisar:focus-visible {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* ! ========================================================================================= */
+/* Área da tabela com rolagem */
+.moldura-tabela {
+    min-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* ! ========================================================================================= */
+.formulario-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* ! ========================================================================================= */
+
+/* ===== FORM STRUCTURE ===== */
+.linha-formulario {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grupo-formulario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    position: relative;
+}
+
+#campos-meio-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#checkboxes-especificos {
+    flex: 1;
+}
+
+/* ! ========================================================================================= */
+/* Label dos campos */
+.grupo-formulario label {
+    padding-left: 3px;
+    font-size: 1rem;
+    color: var(--cor-texto);
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+}   
+
+/* Estilos para campos comuns */
+.entrada-formulario {
+    padding: 12px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--cor-fundo-input);
+    color: var(--cor-texto);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 42px;
+}
+
+.entrada-formulario:focus {
+    border-color: var(--cor-destaque);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+.entrada-formulario::placeholder {
+    color: var(--cor-texto-claro);
+    font-weight: 300;
+}
+
+/* Textarea */
+.textarea-fixo {
+    width: 100%;
+    height: 6rem;
+    display: block;
+    resize: none;
+    overflow-y: auto;
+    padding: 10px 14px;
+    font: 14px/1.5 'Poppins', sans-serif;
+    color: var(--cor-texto);
+    background: var(--cor-fundo-input);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    box-shadow: none;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textarea-fixo:focus {
+    background: #fff;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+/* Placeholder do textarea */
+.textarea-fixo::placeholder {
+    color: var(--cor-texto-claro);
+    font-weight: 300;
+    opacity: 1;
+}
+
+/* Scrollbar personalizada (WebKit) */
+.textarea-fixo::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Fundo do track da scrollbar */
+.textarea-fixo::-webkit-scrollbar-track {
+    background: var(--cor-fundo);
+}
+
+/* Thumb da scrollbar */
+.textarea-fixo::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda);
+    border-radius: 3px;
+}
+
+/* Container para ícone de foto */
+.container-icone-foto {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 1;
+}
+
+/* Botão com ícone de foto */
+.botao-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-destaque);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    padding-top: 8px;
+}
+
+/* Efeito hover no botão de foto */
+.botao-foto:hover {
+    transform: translateY(-2px);
+    color: #03001a;
+}
+
+/* Estilo base dos ícones */
+.bx {
+    font-size: 1.3rem;
+}
+
+/* formulario.css */
+/* Botões para alternar entre Relógio e Joia */
+.seletor-tipo-flutuante {
+    position: absolute;
+    top: 5px;
+    left: 45px;
+    display: flex;
+    gap: 4px;
+    z-index: 1000;
+    background: transparent;
+}
+
+/* Estilo padrão do botão seletor */
+.botao-seletor {
+    padding: 8px 24px;
+    background: white;
+    border: 2px solid var(--cor-borda);
+    color: var(--cor-texto-claro);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 1.95px 1.95px 2.6px;
+    position: relative;
+}
+
+/* Estilo do botão quando ativo */
+.botao-seletor.ativo {
+    background: var(--cor-destaque);
+    color: white;
+    border: 2.5px solid white;
+    box-shadow: rgba(0, 0, 0, 0.06) 1.95px 1.95px 2.6px;
+}
+
+/* Efeito hover para botões inativos */
+.botao-seletor:not(.ativo):hover {
+    color: var(--cor-texto);
+    background: #f3f3f3;
+}
+
+/* Ícone dentro do botão */
+.botao-seletor i {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+/* Ícone levemente ampliado quando ativo */
+.botao-seletor.ativo i {
+    transform: scale(1.1);
+}
+
+/* ! ========================================================================================= */
+/* Esconde o formulário por padrão */
+.formulario-tipo {
+    display: none;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostra o formulário quando ativo */
+.formulario-tipo.ativo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+}
+
+/* ! ========================================================================================= */
+/* Seção principal do formulário (69%) */
+.moldura-cadastro {
+    flex: 1 1 69%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ! ========================================================================================= */
+/* Coluna lateral auxiliar (30%) */
+.auxiliar {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+}
+
+/* ! ========================================================================================= */
+
+/* Área da caixa de pesquisa */
+.moldura-pesquisar {
+    flex: 0.8;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* ! ========================================================================================= */
+/* Título da área de pesquisa */
+.titulo-pesquisa {
+    color: var(--cor-texto);
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Container da entrada e botão de pesquisa */
+.container-pesquisa {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Campo de entrada de texto */
+.entrada-pesquisa {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 0.875rem; /* 14px */
+    transition: all 0.2s ease;
+    background-color: var(--cor-fundo-input);
+    color: var(--cor-texto);
+}
+
+/* Estilo ao focar no campo */
+.entrada-pesquisa:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+    background-color: white;
+}
+
+/* Estilo do placeholder */
+.entrada-pesquisa::placeholder {
+    color: var(--cor-texto-claro);
+    opacity: 1;
+}
+
+/* Botão de pesquisa */
+.botao-pesquisar {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Efeito ao passar o mouse no botão */
+.botao-pesquisar:hover {
+    background-color: #03001a;
+    transform: translateY(-1px);
+}
+
+/* Efeito ao clicar no botão */
+.botao-pesquisar:active {
+    transform: translateY(0);
+}
+
+/* Ícone dentro do botão */
+.botao-pesquisar i {
+    font-size: 1.25rem; /* 20px */
+    transition: transform 0.2s ease;
+}
+
+/* Animação do ícone no hover */
+.botao-pesquisar:hover i {
+    transform: scale(1.05);
+}
+
+/* Acessibilidade no foco */
+.botao-pesquisar:focus-visible {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* ! ========================================================================================= */
+/* Área da tabela com rolagem */
+.moldura-tabela {
+    flex: 3; 
+    background-color: white;
+    border-radius: 8px; 
+    box-shadow: var(--sombra); 
+    padding: 15px;
+    border: 1px solid var(--cor-borda); 
+    overflow: auto; /* Adiciona rolagem quando necessário */
+}
+
+/* ! ========================================================================================= */
+/* Formulário relógio: layout coluna com espaçamento */
+#form-relogio {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ! ========================================================================================= */
+
+/* Linha do formulário: layout flexível com espaçamento e quebra */
+.linha-formulario {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Grupos de campos: coluna com espaçamento e largura flexível */
+.grupo-formulario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    position: relative;
+}
+
+/* Linha nome/ordem: nome maior que ordem */
+.linha-nome-ordem .grupo-nome {
+    flex: 2;
+}
+
+.linha-nome-ordem .grupo-ordem {
+    flex: 1;
+}
+
+/* Última linha do formulário */
+.linha-formulario.ultima-linha {
+    display: flex;
+    gap: 30px;
+}
+
+/* ! ========================================================================================= */
+/* Label dos campos */
+.grupo-formulario label {
+    padding-left: 3px;
+    font-size: 1rem;
+    color: var(--cor-texto);
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+}
+
+/* Estilo dos campos de entrada */
+.entrada-formulario {
+    padding: 12px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--cor-fundo-input);
+    color: var(--cor-texto);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 42px;
+}
+
+/* Efeito ao focar nos campos */
+.entrada-formulario:focus {
+    border-color: var(--cor-destaque);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+/* Estilo do placeholder */
+.entrada-formulario::placeholder {
+    color: var(--cor-texto-claro);
+    font-weight: 300;
+}
+
+/* Container para ícone de foto */
+.container-icone-foto {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 1;
+}
+
+/* Botão com ícone de foto */
+.botao-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-destaque);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    padding-top: 8px;
+}
+
+/* Efeito hover no botão de foto */
+.botao-foto:hover {
+    transform: translateY(-2px);
+    color: #03001a;
+}
+
+/* Estilo base dos ícones */
+.bx {
+    font-size: 1.3rem;
+}
+
+/* ! ========================================================================================= */
+/* Linha com os campos Telefone, Data e Sexo */
+.linha-telefone-data-sexo {
+    display: flex;
+    gap: 20px;
+}
+
+/* Grupo do campo Telefone */
+.grupo-telefone {
+    flex: 4;
+    position: relative;
+}
+
+/* Grupo do campo Data */
+.grupo-data {
+    flex: 2;
+    position: relative;
+}
+
+/* Container que envolve o campo de data e o ícone */
+.container-data {
+    position: relative;
+    display: flex;
+}
+
+/* Estilo do campo de entrada de data */
+.entrada-data {
+    padding-right: 40px; /* Espaço para o ícone do calendário */
+    background: var(--cor-fundo-input);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--cor-texto);
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 42px;
+    padding: 12px 14px;
+}
+
+/* Efeito ao focar no campo de data */
+.entrada-data:focus {
+    border-color: var(--cor-destaque);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+/* Botão do calendário (ícone dentro do campo) */
+.botao-calendario {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cor-texto-claro);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Efeito hover no botão do calendário */
+.botao-calendario:hover {
+    color: var(--cor-destaque);
+    background-color: var(--cor-fundo-auxiliar);
+}
+
+/* Tamanho do ícone dentro do botão de calendário */
+.botao-calendario i {
+    font-size: 20px;
+}
+
+/* ! ========================================================================================= */
+/* Container principal do datepicker */
+.date-picker {
+    display: none; /* Oculto por padrão */
+    position: absolute; /* Posição relativa ao campo */
+    top: calc(100% + 5px); /* Abaixo do campo */
+    left: 0;
+    width: 280px;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    z-index: 1000;
+    padding: 15px;
+    animation: fadeIn 0.2s ease-out; /* Animação ao aparecer */
+}
+
+/* Animação de entrada do datepicker */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabeçalho do datepicker (navegação de meses) */
+.date-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 5px;
+}
+
+/* Botões de navegação (ex: voltar ou avançar mês) */
+.date-picker-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto);
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+/* Efeito hover nos botões */
+.date-picker-header button:hover {
+    background-color: var(--cor-fundo-auxiliar);
+    color: var(--cor-destaque);
+}
+
+/* Título do mês atual */
+.date-picker-header h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cor-texto);
+    margin: 0;
+    text-align: center;
+    min-width: 120px;
+}
+
+/* Grade com os dias da semana e do mês */
+.date-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas: dom a sáb */
+    gap: 4px;
+}
+
+/* Estilo dos dias */
+.date-picker-grid div {
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+/* Cabeçalho dos dias da semana */
+.date-picker-grid .dia-semana {
+    font-weight: 500;
+    color: var(--cor-destaque);
+    font-size: 12px;
+    padding: 5px 0;
+    text-transform: uppercase;
+    cursor: default;
+}
+
+/* Estilo padrão dos dias */
+.date-picker-grid .dia {
+    color: var(--cor-texto);
+}
+
+/* Efeito hover nos dias */
+.date-picker-grid .dia:hover {
+    background-color: var(--cor-fundo-auxiliar);
+    color: var(--cor-destaque);
+}
+
+/* Dia atual (hoje) */
+.date-picker-grid .dia-atual {
+    background-color: var(--cor-destaque);
+    color: white;
+    font-weight: 500;
+}
+
+/* Dia selecionado */
+.date-picker-grid .dia-selecionado {
+    background-color: var(--cor-destaque);
+    color: white;
+    font-weight: 500;
+}
+
+/* Dias que pertencem a outro mês (inativos) */
+.date-picker-grid .dia-outro-mes {
+    color: var(--cor-texto-claro);
+    pointer-events: none; /* Não clicável */
+}
+
+/* ! ========================================================================================= */
+/* Container do grupo "Sexo" */
+.grupo-sexo {
+    flex: 1; 
+    min-width: 120px; 
+}
+
+/* Container dos botões de rádio */
+.grupo-radio {
+    display: flex;
+    gap: 20px; 
+    align-items: center;
+    height: 100%;
+}
+
+/* Estilo da opção individual de rádio (envolve o botão e o texto) */
+.opcao-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--cor-texto);
+    transition: all 0.2s ease;
+    padding: 8px 0;
+}
+
+/* Efeito hover na opção */
+.opcao-radio:hover {
+    color: var(--cor-destaque); 
+}
+
+/* Estilo do botão de rádio em si */
+.entrada-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--cor-borda); 
+    border-radius: 50%; 
+    appearance: none; 
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Estado marcado do botão de rádio */
+.entrada-radio:checked {
+    border-color: var(--cor-destaque); 
+    background-color: var(--cor-destaque); 
+    box-shadow: 0 0 0 2px rgba(4, 0, 45, 0.1); 
+}
+
+/* Estado de foco (quando selecionado via teclado) */
+.entrada-radio:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.2); 
+}
+
+/* ! ========================================================================================= */
+/* Container do multiselect */
+.container-multiselect {
+    position: relative;
+    width: 100%;
+}
+
+/* Área de tags e campo de entrada */
+.input-tags-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background: var(--cor-fundo-input);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-height: 44px;
+}
+
+/* Quando ativo: destaque na borda e sombra */
+.container-multiselect.active .input-tags-wrapper {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Mostra o dropdown */
+.container-multiselect.active .dropdown-multiselect {
+    display: block;
+}
+
+/* Altera a cor do ícone quando ativo */
+.container-multiselect.active .dropdown-icon {
+    background-color: #03001a;
+}
+
+/* Rotaciona o ícone */
+.container-multiselect.active .dropdown-icon i {
+    transform: rotate(180deg);
+}
+
+/* ! ========================================================================================= */
+/* Campo de entrada de texto */
+.tag-input {
+    flex: 1;
+    min-width: 120px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 12px;
+    height: 100%;
+    order: 1;
+    color: var(--cor-texto);
+}
+
+/* Placeholder do campo de entrada */
+.tag-input::placeholder {
+    color: var(--cor-texto-claro);
+    font-weight: 300;
+}
+
+/* Área onde as tags são exibidas */
+.tags-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    align-items: center;
+    order: 2;
+    overflow-x: auto;
+    max-width: 60%;
+    padding: 6px 0;
+    scrollbar-width: thin;
+}
+
+/* Estilo extra quando há tags */
+.tags-container:not(:empty) {
+    padding-left: 8px;
+    border-left: 1px solid var(--cor-borda);
+    margin-left: 4px;
+}
+
+/* Scrollbar da área de tags (Firefox e WebKit) */
+.tags-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tags-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tags-container::-webkit-scrollbar-thumb {
+    background-color: var(--cor-texto-claro);
+    border-radius: 2px;
+}
+
+/* Estilo de cada tag */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--cor-fundo-auxiliar);
+    color: var(--cor-destaque);
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-size: 11px;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Botão de remoção da tag */
+.tag-remove {
+    background: none;
+    border: none;
+    color: var(--cor-texto-claro);
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    font-size: 12px;
+    transition: color 0.2s ease;
+}
+
+.tag-remove:hover {
+    color: var(--cor-destaque);
+}
+
+/* Ícone que abre o dropdown */
+.dropdown-icon {
+    padding: 0 14px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    background-color: var(--cor-destaque);
+    order: 3;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Hover no botão do dropdown */
+.dropdown-icon:hover {
+    background-color: #03001a;
+}
+
+/* Ícone interno do botão */
+.dropdown-icon i {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+/* ! ========================================================================================= */
+/* Dropdown principal (inicialmente oculto) */
+.dropdown-multiselect {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* Scrollbar do dropdown */
+.dropdown-multiselect::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-multiselect::-webkit-scrollbar-track {
+    background: var(--cor-fundo);
+    border-radius: 0 0 6px 0;
+}
+
+.dropdown-multiselect::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda);
+    border-radius: 3px;
+}
+
+/* Espaçamento interno do conteúdo */
+.dropdown-content {
+    padding: 8px 0;
+}
+
+/* Estilo dos itens do dropdown */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover nos itens */
+.dropdown-item:hover {
+    background-color: var(--cor-fundo-auxiliar);
+}
+
+/* Item destacado (teclado ou mouse) */
+.dropdown-item.highlighted {
+    background-color: rgba(4, 0, 45, 0.1);
+}
+
+/* Estilo da checkbox */
+.dropdown-item input[type="checkbox"] {
+    margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--cor-destaque);
+    flex-shrink: 0;
+}
+
+/* Estilo do texto do item */
+.dropdown-item label {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--cor-texto);
+    font-weight: normal;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Mensagem quando não há resultados */
+.dropdown-no-results {
+    padding: 10px 16px;
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+    display: none;
+}
+
+/* ! ========================================================================================= */
+/* Ajuste do ícone quando há tags (altura e alinhamento) */
+.input-tags-wrapper:has(.tags-container:not(:empty)) .dropdown-icon {
+    height: 48px;
+    align-items: flex-start;
+    padding-top: 12px;
+}
+
+/* Ajuste do input quando há tags (alinhamento e padding) */
+.input-tags-wrapper:has(.tags-container:not(:empty)) .tag-input {
+    align-self: flex-start;
+    padding-top: 12px;
+}
+
+/* ! ========================================================================================= */
+/* Container com largura total */
+.grupo-formulario.largura-total {
+    width: 100%;
+    position: relative;
+}
+
+/* Textarea com tamanho fixo */
+.textarea-fixo {
+    width: 100%;
+    height: 6rem;
+    display: block;
+    resize: none;
+    overflow-y: auto;
+    padding: 10px 14px;
+    font: 14px/1.5 'Poppins', sans-serif;
+    color: var(--cor-texto);
+    background: var(--cor-fundo-input);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    box-shadow: none;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo ao focar no textarea */
+.textarea-fixo:focus {
+    background: #fff;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+/* Placeholder do textarea */
+.textarea-fixo::placeholder {
+    color: var(--cor-texto-claro);
+    font-weight: 300;
+    opacity: 1;
+}
+
+/* Scrollbar personalizada (WebKit) */
+.textarea-fixo::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Fundo do track da scrollbar */
+.textarea-fixo::-webkit-scrollbar-track {
+    background: var(--cor-fundo);
+}
+
+/* Thumb da scrollbar */
+.textarea-fixo::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda);
+    border-radius: 3px;
+}
+
+/* ! ========================================================================================= */
+/* Largura fixa do grupo de valor */
+.grupo-valor {
+    flex: 0 0 200px;
+    min-width: auto;
+}
+
+/* Estilo do campo de entrada de valor */
+.entrada-valor {
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+/* Foco no campo de valor */
+.entrada-valor:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(4, 0, 45, 0.1);
+    outline: none;
+}
+
+/* Grupo de materiais */
+.grupo-materiais {
+    flex: 1;
+}
+
+/* Container de checkboxes */
+.grupo-checkbox {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    padding-top: 6px;
+}
+
+/* Opção do checkbox */
+.opcao-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .8px;
+    color: var(--cor-texto);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Checkbox maior */
+.entrada-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 4px;
+    appearance: none;
+    transition: all 0.2s ease;
+    position: relative;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Checkbox marcado */
+.entrada-checkbox:checked {
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+}
+
+/* Marca do checkbox */
+.entrada-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ! ========================================================================================= */
+/* Botão confirmar em verde */
+.botao-confirmar {
+    background-color: #0cb854;
+    color: white;
+    border: none;
+    padding: 25px 40px;
+    border-radius: 6px;
+    font-weight: 520;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--sombra-botao);
+    font-size: 1rem;
+    letter-spacing: 0.02rem;
+    height: 38px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+/* Hover do botão confirmar */
+.botao-confirmar:hover {
+    background-color: rgb(37, 167, 91);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+/* ! ========================================================================================= */
+/* ! ========================================================================================= */
+/* ESTILOS PARA BALÕES DE ERRO */
+.balao-erro {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0.75rem;
+    background: white;
+    color: var(--cor-texto);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none;
+    align-items: center;
+    animation: aparecer 0.3s ease;
+}
+
+.balao-erro i {
+    color: var(--cor-perigo);
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.mensagem-erro {
+    flex: 1;
+}
+
+/* Balão padrão (abaixo do campo) */
+.balao-erro {
+    top: calc(100% + 0.5rem);
+}
+
+.balao-erro::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 1rem;
+    border: 0.5rem solid transparent;
+    border-bottom-color: var(--cor-borda);
+}
+
+.balao-erro::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 1rem;
+    border: 0.5rem solid transparent;
+    border-bottom-color: white;
+    margin-bottom: -1px;
+}
+
+/* Balão superior (para campos como valor) */
+.balao-erro.balao-top {
+    top: auto;
+    bottom: calc(100% + 0.5rem);
+    animation: aparecer-top 0.3s ease;
+}
+
+.balao-erro.balao-top::before {
+    top: 100%;
+    bottom: auto;
+    border-bottom-color: transparent;
+    border-top-color: var(--cor-borda);
+}
+
+.balao-erro.balao-top::after {
+    top: 100%;
+    bottom: auto;
+    border-bottom-color: transparent;
+    border-top-color: white;
+    margin-top: -1px;
+    margin-bottom: 0;
+}
+
+/* ANIMAÇÕES */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecer-top {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para campos inválidos */
+.grupo-formulario.invalido .entrada-formulario {
+    border-color: var(--cor-perigo);
+}
