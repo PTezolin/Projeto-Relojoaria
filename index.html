@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Cadastro e Gerenciamento de Consertos de Joias e Relógios da Missaglia Presentes.">
+
+    <!-- Pré-conexão para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Boxicons) - apenas uma importação -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="./css/global/variaveis.css">
+    <link rel="stylesheet" href="./css/global/reset.css">
+    <link rel="stylesheet" href="./css/global/layout.css">
+    <link rel="stylesheet" href="css/components/barra-lateral.css">
+    <link rel="stylesheet" href="css/components/formulario.css">
+    <link rel="stylesheet" href="css/components/foto-modal.css">
+    <link rel="stylesheet" href="css/components/tabela-minimalista.css">
+
+    <title>Missaglia Presentes</title>
+</head>
+<body>
+
+    <!-- A barra lateral é carregada dinamicamente via JavaScript -->
+    
+    <main class="home">
+        <div class="moldura-cadastro">
+            <!-- Botões de seleção -->
+            <div class="seletor-tipo-flutuante">
+                <button class="botao-seletor ativo" data-form="relogio">Relógio</button>
+                <button class="botao-seletor" data-form="joia">Joia</button>
+            </div>
+
+            <!-- Container para formulários dinâmicos -->
+            <div id="form-container"></div>
+        </div>
+        
+        <div class="auxiliar">
+            <div class="moldura-pesquisar">
+                <h3 class="titulo-pesquisa">Pesquisar</h3>
+                <div class="container-pesquisa">
+                    <input type="text" 
+                           class="entrada-pesquisa" 
+                           placeholder="Digite sua pesquisa..."
+                           aria-label="Campo de pesquisa">
+                    <button class="botao-pesquisar" aria-label="Pesquisar">
+                        <i class='bx bx-search'></i>
+                    </button>
+                </div>
+            </div>
+        
+            <div class="moldura-tabela">
+                <!-- A tabela será injetada aqui via JavaScript -->
+            </div>
+        </div>
+
+        <div id="fotoModal" class="modal-conserto">
+            <div class="modal-conteudo">
+                <div class="modal-header">
+                    <h3>Adicionar Fotos <span class="contador-fotos">(0/3)</span></h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="upload-area" id="uploadArea">
+                        <i class='bx bx-cloud-upload'></i>
+                        <p>Clique ou arraste até 3 fotos</p>
+                        <input type="file" id="fotoInput" accept="image/*" multiple style="display: none;">
+                    </div>
+                    <div class="preview-container" id="previewContainer"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="limparFotos" class="btn-remove">
+                        <i class='bx bx-trash'></i> Limpar
+                    </button>
+                    <button id="confirmarFotos" class="btn-confirm" disabled>
+                        <i class='bx bx-check'></i> Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Scripts -->
+    <script src="js/barra-lateral.js"></script>
+    <script src="js/manipulador-forms.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/multiselect.js"></script>
+    <script src="js/form-utils.js"></script>
+    <script src="js/foto-modal.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/tabela-minimalista.js"></script>
+
+
+</body>
+</html>

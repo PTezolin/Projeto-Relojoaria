@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missaglia Presentes - Serviços</title>
+    
+    <!-- Importação dos arquivos CSS -->
+    <link rel="stylesheet" href="css/global/variaveis.css">
+    <link rel="stylesheet" href="css/global/reset.css">
+    <link rel="stylesheet" href="css/global/layout.css">
+    <link rel="stylesheet" href="css/components/barra-lateral.css">
+    <link rel="stylesheet" href="css/components/servicos-lista.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+    <!-- Barra lateral será carregada dinamicamente -->
+    
+    <section class="servicos-container">
+        <!-- Cabeçalho dinâmico -->
+        <header class="servicos-header">
+            <div class="servicos-titulo-container">
+                <h1 id="titulo-pagina" class="servicos-titulo">
+                    <span id="texto-titulo">Serviços</span>
+                    <span id="contador-itens" class="servicos-contador">0 itens</span>
+                </h1>
+            </div>
+            
+            <div id="acoes-cabecalho" class="servicos-acoes">
+                <!-- Botões serão inseridos dinamicamente -->
+            </div>
+        </header>
+
+        <!-- Filtros e busca -->
+        <nav class="servicos-filtros">
+            <div class="servicos-busca">
+                <i class='bx bx-search servicos-busca-icone'></i>
+                <input type="search" id="campo-busca" class="servicos-busca-campo" 
+                       placeholder="Pesquisar por ordem, cliente ou telefone...">
+                <button id="limpar-busca" class="servicos-busca-limpar" hidden>
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <div class="servicos-filtros-opcoes">
+                <label class="servicos-filtro">
+                    <input type="radio" name="filtro-servico" value="todos" checked>
+                    <span>Todos</span>
+                </label>
+                <label class="servicos-filtro">
+                    <input type="radio" name="filtro-servico" value="relogio">
+                    <span>Relógios</span>
+                </label>
+                <label class="servicos-filtro">
+                    <input type="radio" name="filtro-servico" value="joia">
+                    <span>Jóias</span>
+                </label>
+            </div>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main class="servicos-conteudo">
+            <div id="mensagem-lista-vazia" class="servicos-vazio" style="display: none;">
+                <i id="icone-vazio" class='bx bx-package servicos-vazio-icone'></i>
+                <p id="texto-vazio" class="servicos-vazio-mensagem">Nenhum item encontrado</p>
+            </div>
+            
+            <!-- Tabela será carregada dinamicamente -->
+            <div id="tabela-container" class="servicos-tabela-container"></div>
+        </main>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/carregar-componentes.js"></script>
+    <script src="js/barra-lateral.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/servicos.js"></script>
+</body>
+</html>
