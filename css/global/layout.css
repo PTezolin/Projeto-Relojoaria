@@ -1,0 +1,8 @@
+.home {
+    display: flex;
+    height: 100vh;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+}

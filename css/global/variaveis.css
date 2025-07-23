@@ -1,0 +1,36 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Cores de fundo */
+    --cor-fundo: #f5f5f5;
+    --cor-fundo-input: #f9f9f9;
+    --cor-input-pesquisa: #F6F5FF;
+    --cor-fundo-auxiliar: #ecf0f1;
+    --cor-barra-lateral: #FFF;
+
+    /* Cores principais */
+    --cor-primaria: #3498db;
+    --cor-sucesso: #2ecc71;
+    --cor-destaque: #04002D;
+    --cor-aviso: #e67e22;
+    --cor-perigo: #e74c3c;
+
+    /* Cores de texto */
+    --cor-texto: #333;
+    --cor-texto-claro: #7f8c8d;
+    --cor-texto-barra-lateral: #707070;
+    
+    /* Cores auxiliares */
+    --cor-borda: #e0e0e0;
+    --cor-seta: #04002D;
+
+    /* Transições */
+    --transicao-rapida: all 0.2s ease;
+    --transicao-media: all 0.3s ease;
+    --transicao-padrao: all 0.3s ease;
+
+    /* Efeitos visuais */
+    --sombra: rgba(0, 0, 0, 0.097) 0px 3px 8px;
+}
+
